@@ -59,3 +59,47 @@ TEST_CASE("AjouterDepensesEpargnes")
     AjouterDepensesEpargnes(utilisateur3, -5);
     REQUIRE(utilisateur3.epargnes == 50);
 }
+
+TEST_CASE("ObtenirDepenses")
+{
+    Utilisateur utilisateur1{123, 745, 963};
+    Utilisateur utilisateur2{321, -852, -365};
+
+    // Assert expected results
+    REQUIRE(ObtenirDepenses(utilisateur1) == 1708);
+    REQUIRE(ObtenirDepenses(utilisateur2) == -1217);
+
+    // Assert that nothing changed
+    REQUIRE(utilisateur1.gainArgent == 123);
+    REQUIRE(utilisateur1.depensesHabitation == 745);
+    REQUIRE(utilisateur1.epargnes == 963);
+
+    REQUIRE(utilisateur2.gainArgent == 321);
+    REQUIRE(utilisateur2.depensesHabitation == -852);
+    REQUIRE(utilisateur2.epargnes == -365);
+}
+
+TEST_CASE("ObtenirBalance")
+{
+    Utilisateur utilisateur1{12345, 745, 963};
+    Utilisateur utilisateur2{321, -852, -365};
+    Utilisateur utilisateur3{12, 71, 93};
+
+    // Assert expected results
+    REQUIRE(ObtenirBalance(utilisateur1) == 10637);
+    REQUIRE(ObtenirBalance(utilisateur2) == 1538);
+    REQUIRE(ObtenirBalance(utilisateur3) == -152);
+
+    // Assert that nothing changed
+    REQUIRE(utilisateur1.gainArgent == 12345);
+    REQUIRE(utilisateur1.depensesHabitation == 745);
+    REQUIRE(utilisateur1.epargnes == 963);
+
+    REQUIRE(utilisateur2.gainArgent == 321);
+    REQUIRE(utilisateur2.depensesHabitation == -852);
+    REQUIRE(utilisateur2.epargnes == -365);
+
+    REQUIRE(utilisateur3.gainArgent == 12);
+    REQUIRE(utilisateur3.depensesHabitation == 71);
+    REQUIRE(utilisateur3.epargnes == 93);
+}
