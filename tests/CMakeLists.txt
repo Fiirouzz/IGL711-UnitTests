@@ -1,15 +1,15 @@
-add_executable(tests 
-    unittests.cpp
-	catch.hpp
-)
+add_executable(banktests
+		unittests.cpp
+		catch.hpp
+		)
 
 
-target_link_libraries(tests
-    PRIVATE
-    examfinal
-)
+target_link_libraries(banktests
+		PRIVATE
+		bank
+		)
 
-target_include_directories(tests
-    PRIVATE
-    examfinal
-)
+target_include_directories(banktests
+		PRIVATE
+		bank
+		)

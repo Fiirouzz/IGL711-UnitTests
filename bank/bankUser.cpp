@@ -32,14 +32,14 @@ int ObtenirCote(const Utilisateur & utilisateur)
 {
     // j'utilise des float ici pour ne pas avoir besoin de transtyper lors de la division
     const float totalDepenses = ObtenirDepenses(utilisateur);
-    const float tauxDeLiberté = totalDepenses / utilisateur.gainArgent;
+    const float tauxDeLiberte = totalDepenses / utilisateur.gainArgent;
     
-    if (tauxDeLiberté > 1.f) // 1.f est la même chose que 1.0 (mais pour un float)
+    if (tauxDeLiberte > 1.f) // 1.f est la même chose que 1.0 (mais pour un float)
     {
         return 0;
     }
     
-    if (tauxDeLiberté < 0.f) // 0.f est la même chose que 0.0 (mais pour un float)
+    if (tauxDeLiberte < 0.f) // 0.f est la même chose que 0.0 (mais pour un float)
     {
         return -1;
     }
