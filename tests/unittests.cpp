@@ -103,3 +103,18 @@ TEST_CASE("ObtenirBalance")
     REQUIRE(utilisateur3.depensesHabitation == 71);
     REQUIRE(utilisateur3.epargnes == 93);
 }
+
+TEST_CASE("ObtenirCote")
+{
+    Utilisateur utilisateur1{25, 75, 14};
+    int cote1 = ObtenirCote(utilisateur1);
+    REQUIRE(cote1 == 0);
+
+    Utilisateur utilisateur2{789, 12, -45};
+    int cote2 = ObtenirCote(utilisateur2);
+    REQUIRE(cote2 == -1);
+
+    Utilisateur utilisateur3{10, 6, 4};
+    int cote3 = ObtenirCote(utilisateur3);
+    REQUIRE(cote3 == 1);
+}
