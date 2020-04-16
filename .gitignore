@@ -34,3 +34,6 @@
 # Cmake build folders
 build
 cmake-build-debug
+
+# Clion's project folder
+.idea
